@@ -18,7 +18,7 @@ namespace CodeBase.Infrastructure.States
         public void Enter(string sceneName)
         {
             // TODO: Enable loader screen
-            _sceneService.Load(sceneName, LoadSceneMode.Additive, OnLoaded);
+            _sceneService.Load(sceneName, LoadSceneMode.Single, OnLoaded);
         }
 
         public void Exit()
