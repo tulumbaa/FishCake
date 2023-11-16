@@ -22,7 +22,7 @@ namespace CodeBase.Infrastructure.States
 
         public void Exit()
         {
-            _sceneService.Unload(SceneManager.GetActiveScene());
+           /* _sceneService.Unload(SceneManager.GetActiveScene());*/
         }
     }
 }
