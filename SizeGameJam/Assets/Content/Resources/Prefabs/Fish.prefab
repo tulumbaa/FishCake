@@ -277,8 +277,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585b2410221d9b340a2946ec9fd6bbc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timeToHooking: 5
   _power: 2
   _weight: 1
-  _timeToHooking: 10
   _agility: 0.1
   _scale: 0
+  _swimSpeed: 3

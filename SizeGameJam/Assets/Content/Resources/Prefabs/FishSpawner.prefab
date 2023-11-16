@@ -46,12 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minSpawnDelay: 2
   _maxSpawnDelay: 6
-  _power: 0
-  _weight: 0
-  _agility: 0
-  _depth: 0
-  _baitLevel: 0
-  _scale: 0
-  _fishPrice: 0
-  _fishSprite: {fileID: 0}
-  _swimSpeed: 0
+  _fishToSpawn: {fileID: 3641808402931773704, guid: 1952090d063530546b641815679a268f, type: 3}
+  _swimSpeed: 10
+  _isActive: 0
+  _shakeDuration: 0
+  _shakeStrenght: 0
+  _shakeVibro: 0
+  _shakeRandomness: 0
+  _shakeSnapping: 0
+  _shakeFadeOut: 1

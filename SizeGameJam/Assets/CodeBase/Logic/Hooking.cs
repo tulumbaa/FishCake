@@ -6,23 +6,17 @@ namespace CodeBase.Logic
 {
     public class Hooking : MonoBehaviour
     {
-        [SerializeField]
-        private float _fishingRodPower;
-        [SerializeField]
-        private float _fishingLineStrenght;
-        [SerializeField]
-        private float _bait;
-
         private Fish _catchedFish;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Fish") && !_catchedFish)
             {
-                Debug.Log(collision);
                 _catchedFish = collision.GetComponent<Fish>();
 
-                transform.parent.GetComponent<DistanceJoint2D>().enabled = true;
+                transform.parent.GetComponent<HookFish>().SetCatchedFish(_catchedFish);
+
+               transform.parent.GetComponent<DistanceJoint2D>().enabled = true;
                 _catchedFish.GetComponent<DistanceJoint2D>().enabled = true;
                 transform.parent.GetComponent<DistanceJoint2D>().connectedBody = _catchedFish.GetComponent<Rigidbody2D>();
                 _catchedFish.GetComponent<DistanceJoint2D>().connectedBody = transform.parent.GetComponent<Rigidbody2D>();
@@ -37,9 +31,9 @@ namespace CodeBase.Logic
             }
         }
 
-        /*        public IEnumerator HookingUp()
-                {
-
-                }*/
+        public void RemoveCathedFish()
+        {
+            _catchedFish = null;
+        }
     }
 }

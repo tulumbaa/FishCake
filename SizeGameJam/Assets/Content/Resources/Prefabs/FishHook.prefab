@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 570539176773146263}
   - component: {fileID: 7689572096297912200}
   - component: {fileID: 1952739446437336281}
+  - component: {fileID: 2020782256677715430}
   m_Layer: 0
   m_Name: FishHook
   m_TagString: Untagged
@@ -181,6 +182,20 @@ DistanceJoint2D:
   m_AutoConfigureDistance: 0
   m_Distance: 0.7
   m_MaxDistanceOnly: 0
+--- !u!114 &2020782256677715430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4005776773913241263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e02d62de757ee9a44b9be9d4c10e02fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fishingRodPower: 3
+  _fishingLineStrenght: 0
 --- !u!1 &7060250000675333229
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,6 +339,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc295956f8ef614b9803090b0810ad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fishingRodPower: 0
-  _fishingLineStrenght: 0
-  _bait: 0

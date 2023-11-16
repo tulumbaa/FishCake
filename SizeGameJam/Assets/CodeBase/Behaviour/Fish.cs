@@ -10,11 +10,11 @@ namespace CodeBase.Behaviour
         private const int HookingPerSecond = 10;
 
         [SerializeField]
+        private float _timeToHooking;
+        [SerializeField]
         private float _power;
         [SerializeField]
         private float _weight;
-        [SerializeField]
-        private float _timeToHooking;
         [SerializeField]
         private float _agility;
         [SerializeField]
@@ -23,6 +23,10 @@ namespace CodeBase.Behaviour
         private int _price;
         private Rigidbody2D _rigidBody;
         private bool _isHooked;
+
+        [Tooltip("Скорость рыбы, когда она убегает после срыва")]
+        [SerializeField]
+        private float _swimSpeed;
 
         private void Start()
         {
@@ -38,15 +42,37 @@ namespace CodeBase.Behaviour
                 _rigidBody.velocity = new Vector2(Random.Range(-10, 10), _power * -1 * Random.Range(1, _power));
             }
         }
+        
+        public void ExpendingTimeToHook(float addtionalTime)
+        {
+            _timeToHooking += addtionalTime;
+        }
+
+        public float GetTimeToHook()
+        {
+            return _timeToHooking;
+        }
+
+        public float GetSwimSpeed()
+        {
+            return _swimSpeed;
+        }
 
         public void Catched()
         {
-            
+
         }
 
         public void CatchedOnHook()
         {
             _isHooked = true;
+        }
+
+        public void Slepped()
+        {
+            _isHooked = false;
+
+            _rigidBody.velocity = new Vector2(0, 0);
         }
     }
 }

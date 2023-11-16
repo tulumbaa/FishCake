@@ -791,54 +791,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2376152132461580588, guid: 4b3f2fb6eb7c5b342971435123413b8e, type: 3}
-      propertyPath: _depth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2376152132461580588, guid: 4b3f2fb6eb7c5b342971435123413b8e, type: 3}
-      propertyPath: _power
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2376152132461580588, guid: 4b3f2fb6eb7c5b342971435123413b8e, type: 3}
-      propertyPath: _scale
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2376152132461580588, guid: 4b3f2fb6eb7c5b342971435123413b8e, type: 3}
-      propertyPath: _weight
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2376152132461580588, guid: 4b3f2fb6eb7c5b342971435123413b8e, type: 3}
-      propertyPath: _agility
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2376152132461580588, guid: 4b3f2fb6eb7c5b342971435123413b8e, type: 3}
-      propertyPath: _baitLevel
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2376152132461580588, guid: 4b3f2fb6eb7c5b342971435123413b8e, type: 3}
-      propertyPath: _fishPrice
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2376152132461580588, guid: 4b3f2fb6eb7c5b342971435123413b8e, type: 3}
-      propertyPath: _swimSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2376152132461580588, guid: 4b3f2fb6eb7c5b342971435123413b8e, type: 3}
-      propertyPath: myDropDown
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2376152132461580588, guid: 4b3f2fb6eb7c5b342971435123413b8e, type: 3}
-      propertyPath: _fishSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 20008788278f3f24696886011350d329, type: 3}
-    - target: {fileID: 2376152132461580588, guid: 4b3f2fb6eb7c5b342971435123413b8e, type: 3}
-      propertyPath: _fishToSpawn
-      value: 
-      objectReference: {fileID: 3641808402931773704, guid: 1952090d063530546b641815679a268f, type: 3}
-    - target: {fileID: 2376152132461580588, guid: 4b3f2fb6eb7c5b342971435123413b8e, type: 3}
-      propertyPath: _swimLifeTime
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4270448608277274355, guid: 4b3f2fb6eb7c5b342971435123413b8e, type: 3}
       propertyPath: m_Name
       value: FishSpawner
