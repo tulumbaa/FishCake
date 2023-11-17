@@ -11,6 +11,8 @@ namespace CodeBase.Logic
         private float _fishingRodPower;
         [SerializeField]
         private float _fishingLineStrenght;
+        [SerializeField]
+        private bool _isIenumeratorWorking;
 
         private Rigidbody2D _rigidBody;
 
@@ -28,7 +30,8 @@ namespace CodeBase.Logic
             _catchedFish = fish;
             _catchedFish.ExpendingTimeToHook(_fishingLineStrenght);
 
-            StartCoroutine(Slipping());
+            if(_isIenumeratorWorking)
+                StartCoroutine(Slipping());
         }
 
         private IEnumerator Slipping()
