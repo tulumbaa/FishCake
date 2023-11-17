@@ -148,6 +148,56 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "HookingQTE",
+            "id": "e604636b-3d0e-4776-9d75-9f476ea63008",
+            "actions": [
+                {
+                    "name": "AnyKeyReader",
+                    "type": "Button",
+                    "id": "b42af47a-69dc-4c93-9971-bf3e1dee875d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ed585ce7-4dec-48aa-aacd-4cacb2c144e7",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyKeyReader",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4806e459-f5d8-40bb-812d-07d2d11bb3e9",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyKeyReader",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "66282c02-49a9-4e40-8613-ea2aa89e3279",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyKeyReader",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

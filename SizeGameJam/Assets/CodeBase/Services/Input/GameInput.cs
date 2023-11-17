@@ -170,6 +170,56 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""HookingQTE"",
+            ""id"": ""e604636b-3d0e-4776-9d75-9f476ea63008"",
+            ""actions"": [
+                {
+                    ""name"": ""AnyKeyReader"",
+                    ""type"": ""Button"",
+                    ""id"": ""b42af47a-69dc-4c93-9971-bf3e1dee875d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""ed585ce7-4dec-48aa-aacd-4cacb2c144e7"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AnyKeyReader"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4806e459-f5d8-40bb-812d-07d2d11bb3e9"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AnyKeyReader"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""66282c02-49a9-4e40-8613-ea2aa89e3279"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AnyKeyReader"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -184,6 +234,9 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         // Dialogues
         m_Dialogues = asset.FindActionMap("Dialogues", throwIfNotFound: true);
         m_Dialogues_Newaction = m_Dialogues.FindAction("New action", throwIfNotFound: true);
+        // HookingQTE
+        m_HookingQTE = asset.FindActionMap("HookingQTE", throwIfNotFound: true);
+        m_HookingQTE_AnyKeyReader = m_HookingQTE.FindAction("AnyKeyReader", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -387,6 +440,52 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         }
     }
     public DialoguesActions @Dialogues => new DialoguesActions(this);
+
+    // HookingQTE
+    private readonly InputActionMap m_HookingQTE;
+    private List<IHookingQTEActions> m_HookingQTEActionsCallbackInterfaces = new List<IHookingQTEActions>();
+    private readonly InputAction m_HookingQTE_AnyKeyReader;
+    public struct HookingQTEActions
+    {
+        private @GameInput m_Wrapper;
+        public HookingQTEActions(@GameInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @AnyKeyReader => m_Wrapper.m_HookingQTE_AnyKeyReader;
+        public InputActionMap Get() { return m_Wrapper.m_HookingQTE; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(HookingQTEActions set) { return set.Get(); }
+        public void AddCallbacks(IHookingQTEActions instance)
+        {
+            if (instance == null || m_Wrapper.m_HookingQTEActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_HookingQTEActionsCallbackInterfaces.Add(instance);
+            @AnyKeyReader.started += instance.OnAnyKeyReader;
+            @AnyKeyReader.performed += instance.OnAnyKeyReader;
+            @AnyKeyReader.canceled += instance.OnAnyKeyReader;
+        }
+
+        private void UnregisterCallbacks(IHookingQTEActions instance)
+        {
+            @AnyKeyReader.started -= instance.OnAnyKeyReader;
+            @AnyKeyReader.performed -= instance.OnAnyKeyReader;
+            @AnyKeyReader.canceled -= instance.OnAnyKeyReader;
+        }
+
+        public void RemoveCallbacks(IHookingQTEActions instance)
+        {
+            if (m_Wrapper.m_HookingQTEActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IHookingQTEActions instance)
+        {
+            foreach (var item in m_Wrapper.m_HookingQTEActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_HookingQTEActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public HookingQTEActions @HookingQTE => new HookingQTEActions(this);
     public interface IGamePlayActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -399,5 +498,9 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     public interface IDialoguesActions
     {
         void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface IHookingQTEActions
+    {
+        void OnAnyKeyReader(InputAction.CallbackContext context);
     }
 }

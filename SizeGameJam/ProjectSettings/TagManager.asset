@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InteractionTrigger
   - Fish
+  - Catch
   layers:
   - Default
   - TransparentFX

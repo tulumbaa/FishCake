@@ -281,5 +281,5 @@ MonoBehaviour:
   _power: 2
   _weight: 1
   _agility: 0.1
-  _scale: 0
+  _scale: 5
   _swimSpeed: 3

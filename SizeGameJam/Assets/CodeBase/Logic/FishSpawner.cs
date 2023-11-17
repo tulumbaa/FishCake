@@ -37,8 +37,6 @@ namespace Assets.CodeBase.Logic
         [SerializeField]
         private bool _shakeFadeOut = true;
 
-
-
         void Start()
         {
             StartCoroutine(FishSpawning());

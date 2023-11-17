@@ -58,6 +58,11 @@ namespace CodeBase.Behaviour
             return _swimSpeed;
         }
 
+        public int GetScale()
+        {
+            return _scale;
+        }
+
         public void Catched()
         {
 

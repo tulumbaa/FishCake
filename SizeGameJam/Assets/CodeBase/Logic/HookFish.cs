@@ -1,4 +1,5 @@
-﻿using CodeBase.Behaviour;
+﻿using Assets.CodeBase.Triggers;
+using CodeBase.Behaviour;
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
@@ -17,12 +18,26 @@ namespace CodeBase.Logic
         private Rigidbody2D _rigidBody;
 
         private Fish _catchedFish;
+        private QTEReader _qTEReader;
 
         private void Start()
         {
             _rigidBody = GetComponent<Rigidbody2D>();
 
             _rigidBody.mass = _fishingRodPower;
+            _qTEReader = GetComponent<QTEReader>();
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Catch") && _catchedFish)
+            {
+                collision.GetComponent<CatchTrigger>().Catch(_catchedFish);
+                StopCoroutine(Slipping());
+                RemoveCathedFish();
+
+                Destroy(_catchedFish.gameObject);
+            }
         }
 
         public void SetCatchedFish(Fish fish)
@@ -38,9 +53,7 @@ namespace CodeBase.Logic
         {
             yield return new WaitForSeconds(_catchedFish.GetTimeToHook());
 
-            GetComponentInChildren<Hooking>().RemoveCathedFish();
-            GetComponent<DistanceJoint2D>().enabled = false;
-            GetComponent<DistanceJoint2D>().connectedBody = null;
+            RemoveCathedFish();
 
             _catchedFish.Slepped();
             _catchedFish.GetComponent<DistanceJoint2D>().enabled = false;
@@ -50,6 +63,13 @@ namespace CodeBase.Logic
             _catchedFish.transform.DOMoveX(_catchedFish.transform.position.x + 20, _catchedFish.GetSwimSpeed(), false).SetEase(Ease.Linear);
 
             _catchedFish = null;
+        }
+
+        private void RemoveCathedFish()
+        {
+            GetComponentInChildren<Hooking>().RemoveCathedFish();
+            GetComponent<DistanceJoint2D>().enabled = false;
+            GetComponent<DistanceJoint2D>().connectedBody = null;
         }
     }
 }

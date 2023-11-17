@@ -1,3 +1,4 @@
+using Assets.CodeBase;
 using Codebase.Services.Input;
 using CodeBase.Infrastructure.States;
 using CodeBase.Services.SceneLoader;
@@ -13,6 +14,7 @@ namespace CodeBase.Installers
             Container.BindInterfacesAndSelfTo<GameStateMachine>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<SceneService>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<GameInput>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<FishContainer>().AsSingle().NonLazy();
         }
     }
 }
