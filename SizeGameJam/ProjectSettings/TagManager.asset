@@ -53,3 +53,6 @@ TagManager:
   - name: Character
     uniqueID: 3057130601
     locked: 0
+  - name: ZeroLayer
+    uniqueID: 822619725
+    locked: 0
