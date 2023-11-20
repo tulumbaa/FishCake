@@ -63,6 +63,11 @@ namespace CodeBase.Behaviour
             return _scale;
         }
 
+        public Sprite GetSprite()
+        {
+            return GetComponent<SpriteRenderer>().sprite;
+        }
+
         public void Catched()
         {
 

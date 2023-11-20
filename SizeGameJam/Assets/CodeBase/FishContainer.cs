@@ -6,15 +6,20 @@ namespace Assets.CodeBase
 {
     public class FishContainer : IFishContainer
     {
-        List<Fish> fishContainer = new List<Fish>();
+        private List<Fish> _fishContainer = new List<Fish>();
 
-        List<FishStats> fishStatsContainer = new List<FishStats>();
+        private List<FishStats> _fishStatsContainer = new List<FishStats>();
+
+        public List<FishStats> GetFishesStats()
+        {
+            return _fishStatsContainer;
+        }
 
         public void AddFishToContainer(Fish fish)
         {
-            fishStatsContainer.Add(new FishStats(fish.GetScale()));
+            _fishStatsContainer.Add(new FishStats(fish.GetScale(), fish.GetSprite()));
 
-            foreach (FishStats fishScale in fishStatsContainer)
+            foreach (FishStats fishScale in _fishStatsContainer)
             {
                 Debug.Log(fishScale.GetScale());
             }
@@ -22,34 +27,12 @@ namespace Assets.CodeBase
 
         public void RemoveFishFromContainer(FishStats fish)
         {
-            fishStatsContainer.Remove(fish);
+            _fishStatsContainer.Remove(fish);
 
-            foreach (FishStats fishScale in fishStatsContainer)
+            foreach (FishStats fishScale in _fishStatsContainer)
             {
                 Debug.Log(fishScale.GetScale());
             }
         }
-    }
-
-    public class FishStats
-    {
-        private int _scale;
-
-        public FishStats(int scale)
-        {
-            _scale = scale;
-        }
-
-        public int GetScale()
-        {
-            return _scale;
-        }
-    }
-
-    public interface IFishContainer
-    {
-        void AddFishToContainer(Fish fish);
-
-        void RemoveFishFromContainer(FishStats fish);
     }
 }
