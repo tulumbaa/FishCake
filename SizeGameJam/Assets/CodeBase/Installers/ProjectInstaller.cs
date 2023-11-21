@@ -14,7 +14,6 @@ namespace CodeBase.Installers
             Container.BindInterfacesAndSelfTo<GameStateMachine>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<SceneService>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<GameInput>().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<FishContainer>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<GameInputService>().AsSingle().NonLazy();
         }
     }

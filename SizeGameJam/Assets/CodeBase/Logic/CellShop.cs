@@ -13,25 +13,22 @@ namespace CodeBase.Logic
 
         private IFishContainer _fishContainer;
 
-        private List<FishStats> _fishStats;
-
-        [Inject]
-        private void Construct(IFishContainer fishContainer)
-        {
-            _fishContainer = fishContainer;
-        }
-
         private void OnEnable()
         {
-            _fishStats = _fishContainer.GetFishesStats();
-            
-            Debug.Log(_fishStats);
+            _fishContainer = FindFirstObjectByType<FishContainer>();
 
-            for (int i = 0; i < _fishStats.Count; i++)
+            List<FishStats> fishStats = _fishContainer.GetFishesStats();
+            
+            Debug.Log(fishStats);
+            Debug.Log(fishStats.Count);
+
+            for (int i = 0; i < fishStats.Count; i++)
             {
                 FishSlot fishSlot = Instantiate(Resources.Load("Prefabs/FishSlot"), CellShopContent).GetComponent<FishSlot>();
+                Debug.Log(fishStats[i].GetScale());
+                Debug.Log(fishStats[i].GetSprite());
 
-                fishSlot.InstantiateFishSlot(_fishStats[i].GetScale(), _fishStats[i].GetSprite(), _fishStats[i].IsCleaned());
+                fishSlot.InstantiateFishSlot(fishStats[i].GetScale(), fishStats[i].GetSprite(), fishStats[i].IsCleaned());
             }
         }
     }

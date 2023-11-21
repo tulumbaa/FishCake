@@ -18,14 +18,12 @@ namespace CodeBase.Logic
         private Rigidbody2D _rigidBody;
 
         private Fish _catchedFish;
-        private QTEReader _qTEReader;
 
         private void Start()
         {
             _rigidBody = GetComponent<Rigidbody2D>();
 
             _rigidBody.mass = _fishingRodPower;
-            _qTEReader = GetComponent<QTEReader>();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -34,6 +32,7 @@ namespace CodeBase.Logic
             {
                 collision.GetComponent<CatchTrigger>().Catch(_catchedFish);
                 StopCoroutine(Slipping());
+
                 RemoveCathedFish();
 
                 Destroy(_catchedFish.gameObject);

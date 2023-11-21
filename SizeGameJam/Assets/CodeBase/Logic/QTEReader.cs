@@ -14,8 +14,6 @@ namespace CodeBase.Logic
         {
             _gameInput.HookingQTE.Enable();
             var bindings = _gameInput.HookingQTE.AnyKeyReader.bindings.ToArray();
-
-
         }
     }
 }

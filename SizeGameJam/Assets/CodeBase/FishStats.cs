@@ -17,11 +17,11 @@ namespace Assets.CodeBase
         public int GetScale() => 
             _scale;
 
-        public Sprite GetSprite() => 
+        public Sprite GetSprite() =>
             _sprite;
 
-        public bool IsCleaned() => 
-            _sprite;
+        public bool IsCleaned() =>
+            _isCleaned;
 
         public void Cleaning() => 
             _isCleaned = true;

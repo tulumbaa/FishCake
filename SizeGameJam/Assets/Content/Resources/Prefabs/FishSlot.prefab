@@ -857,6 +857,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce9a9cfe78e3fa4f91c97be96141f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fishPriceTxt: {fileID: 7384173545955232110}
+  _fishIcon: {fileID: 7566650547644070520}
+  _fishCleaned: {fileID: 6552451513666840816}
 --- !u!1 &6596335026863412887
 GameObject:
   m_ObjectHideFlags: 0

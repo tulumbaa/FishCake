@@ -9,16 +9,18 @@ public class FishSlot : MonoBehaviour
     private IWallet _wallet;
 
     private int _fishPrice;
+    [SerializeField]
     private TextMeshProUGUI _fishPriceTxt;
 
+    [SerializeField]
     private Image _fishIcon;
 
+    [SerializeField]
     private TextMeshProUGUI _fishCleaned;
 
-    [Inject]
-    private void Construct(IWallet wallet)
+    private void Start()
     {
-        _wallet = wallet;
+        _wallet = FindFirstObjectByType<Wallet>();
     }
 
     public void Cell()
@@ -34,6 +36,8 @@ public class FishSlot : MonoBehaviour
         _fishPriceTxt.text = _fishPrice.ToString();
 
         _fishIcon.sprite = fishIcon;
+
+        Debug.Log(fishPrice);
 
         if (isFishCleaned)
         {

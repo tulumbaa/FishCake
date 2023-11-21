@@ -9,10 +9,9 @@ namespace Assets.CodeBase.Triggers
     {
         private IFishContainer _fishContainer;
 
-        [Inject]
-        private void Construct(FishContainer fishContainer)
+        private void Start()
         {
-            _fishContainer = fishContainer;
+            _fishContainer = FindFirstObjectByType<FishContainer>();
         }
 
         public void Catch(Fish fish)

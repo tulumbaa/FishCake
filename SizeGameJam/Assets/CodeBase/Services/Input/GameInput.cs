@@ -44,6 +44,15 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SceneQuit"",
+                    ""type"": ""Button"",
+                    ""id"": ""a33f2618-e0ed-4762-9d98-b7c587b9654c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -110,6 +119,17 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3012cc9-cdd9-483e-980c-77edef85e024"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SceneQuit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -228,6 +248,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         m_GamePlay = asset.FindActionMap("GamePlay", throwIfNotFound: true);
         m_GamePlay_Movement = m_GamePlay.FindAction("Movement", throwIfNotFound: true);
         m_GamePlay_Interact = m_GamePlay.FindAction("Interact", throwIfNotFound: true);
+        m_GamePlay_SceneQuit = m_GamePlay.FindAction("SceneQuit", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Newaction = m_UI.FindAction("New action", throwIfNotFound: true);
@@ -300,12 +321,14 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     private List<IGamePlayActions> m_GamePlayActionsCallbackInterfaces = new List<IGamePlayActions>();
     private readonly InputAction m_GamePlay_Movement;
     private readonly InputAction m_GamePlay_Interact;
+    private readonly InputAction m_GamePlay_SceneQuit;
     public struct GamePlayActions
     {
         private @GameInput m_Wrapper;
         public GamePlayActions(@GameInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_GamePlay_Movement;
         public InputAction @Interact => m_Wrapper.m_GamePlay_Interact;
+        public InputAction @SceneQuit => m_Wrapper.m_GamePlay_SceneQuit;
         public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -321,6 +344,9 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @SceneQuit.started += instance.OnSceneQuit;
+            @SceneQuit.performed += instance.OnSceneQuit;
+            @SceneQuit.canceled += instance.OnSceneQuit;
         }
 
         private void UnregisterCallbacks(IGamePlayActions instance)
@@ -331,6 +357,9 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @SceneQuit.started -= instance.OnSceneQuit;
+            @SceneQuit.performed -= instance.OnSceneQuit;
+            @SceneQuit.canceled -= instance.OnSceneQuit;
         }
 
         public void RemoveCallbacks(IGamePlayActions instance)
@@ -490,6 +519,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnSceneQuit(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
