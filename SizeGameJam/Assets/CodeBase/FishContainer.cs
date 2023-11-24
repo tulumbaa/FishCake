@@ -21,7 +21,7 @@ namespace Assets.CodeBase
         }
 
         public void AddFishToContainer(Fish fish) => 
-            _fishStatsContainer.Add(new FishStats(fish.GetScale(), fish.GetSprite()));
+            _fishStatsContainer.Add(new FishStats(fish.GetScale(), fish.GetSprite(), fish.GetName()));
 
         public void RemoveFishFromContainer(FishStats fish) => 
             _fishStatsContainer.Remove(fish);

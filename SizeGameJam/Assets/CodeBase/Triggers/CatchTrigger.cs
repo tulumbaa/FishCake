@@ -1,7 +1,5 @@
 ﻿using CodeBase.Behaviour;
-using System.Collections;
 using UnityEngine;
-using Zenject;
 
 namespace Assets.CodeBase.Triggers
 {

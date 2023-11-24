@@ -9,14 +9,16 @@ public class FishSlot : MonoBehaviour
     private IWallet _wallet;
 
     private int _fishPrice;
-    [SerializeField]
-    private TextMeshProUGUI _fishPriceTxt;
 
     [SerializeField]
     private Image _fishIcon;
 
     [SerializeField]
+    private TextMeshProUGUI _fishName;
+    [SerializeField]
     private TextMeshProUGUI _fishCleaned;
+    [SerializeField]
+    private TextMeshProUGUI _fishPriceTxt;
 
     private void Start()
     {
@@ -30,14 +32,13 @@ public class FishSlot : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void InstantiateFishSlot(int fishPrice, Sprite fishIcon, bool isFishCleaned)
+    public void InstantiateFishSlot(int fishPrice, Sprite fishIcon, bool isFishCleaned, string fishName)
     {
+        _fishName.text = fishName;
         _fishPrice = fishPrice;
         _fishPriceTxt.text = _fishPrice.ToString();
 
         _fishIcon.sprite = fishIcon;
-
-        Debug.Log(fishPrice);
 
         if (isFishCleaned)
         {

@@ -10,6 +10,8 @@ namespace CodeBase.Behaviour
         private const int HookingPerSecond = 10;
 
         [SerializeField]
+        private string _name;
+        [SerializeField]
         private float _timeToHooking;
         [SerializeField]
         private float _power;
@@ -48,35 +50,28 @@ namespace CodeBase.Behaviour
             _timeToHooking += addtionalTime;
         }
 
-        public float GetTimeToHook()
-        {
-            return _timeToHooking;
-        }
+        public float GetTimeToHook() => 
+            _timeToHooking;
 
-        public float GetSwimSpeed()
-        {
-            return _swimSpeed;
-        }
+        public float GetSwimSpeed() => 
+            _swimSpeed;
 
-        public int GetScale()
-        {
-            return _scale;
-        }
+        public int GetScale() => 
+            _scale;
 
-        public Sprite GetSprite()
-        {
-            return GetComponent<SpriteRenderer>().sprite;
-        }
+        public Sprite GetSprite() => 
+            GetComponent<SpriteRenderer>().sprite;
+
+        public string GetName() => 
+            _name;
 
         public void Catched()
         {
 
         }
 
-        public void CatchedOnHook()
-        {
+        public void CatchedOnHook() => 
             _isHooked = true;
-        }
 
         public void Slepped()
         {
@@ -84,5 +79,6 @@ namespace CodeBase.Behaviour
 
             _rigidBody.velocity = new Vector2(0, 0);
         }
+
     }
 }
