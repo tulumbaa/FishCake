@@ -45,13 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minSpawnDelay: 2
-  _maxSpawnDelay: 6
-  _fishToSpawn: {fileID: 3641808402931773704, guid: 1952090d063530546b641815679a268f, type: 3}
-  _swimSpeed: 10
+  _maxSpawnDelay: 7
+  _fishToSpawn: {fileID: 2685150608005898488, guid: 36b51b30b551fb3448d82c80041fdee6, type: 3}
+  _swimSpeed: 15
   _isActive: 0
-  _shakeDuration: 0
-  _shakeStrenght: 0
+  _shakeDuration: 2
+  _shakeStrenght: 3
   _shakeVibro: 0
-  _shakeRandomness: 0
+  _shakeRandomness: 4
   _shakeSnapping: 0
   _shakeFadeOut: 1

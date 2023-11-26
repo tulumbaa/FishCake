@@ -21,8 +21,6 @@ namespace CodeBase.Behaviour
         [SerializeField]
         private float _weight;
         [SerializeField]
-        private float _agility;
-        [SerializeField]
         private float _timeToHooking;
 
         private Rigidbody2D _rigidBody;
