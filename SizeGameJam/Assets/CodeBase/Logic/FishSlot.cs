@@ -1,3 +1,4 @@
+using Assets.CodeBase;
 using CodeBase.Logic;
 using TMPro;
 using UnityEngine;
@@ -7,6 +8,8 @@ using Zenject;
 public class FishSlot : MonoBehaviour
 {
     private IWallet _wallet;
+    private IFishContainer _fishContainer;
+    private FishStats _fishStat;
 
     private int _fishPrice;
 
@@ -23,24 +26,28 @@ public class FishSlot : MonoBehaviour
     private void Start()
     {
         _wallet = FindFirstObjectByType<Wallet>();
+        _fishContainer = FindFirstObjectByType<FishContainer>();
     }
 
     public void Cell()
     {
         _wallet.AddCoins(_fishPrice);
+        _fishContainer.RemoveFishFromContainer(_fishStat);
 
         Destroy(gameObject);
     }
 
-    public void InstantiateFishSlot(int fishPrice, Sprite fishIcon, bool isFishCleaned, string fishName)
+    public void InstantiateFishSlot(FishStats fishStat)
     {
-        _fishName.text = fishName;
-        _fishPrice = fishPrice;
+        _fishStat = fishStat;
+
+        _fishName.text = _fishStat.GetName();
+        _fishPrice = _fishStat.GetPrice();
         _fishPriceTxt.text = _fishPrice.ToString();
 
-        _fishIcon.sprite = fishIcon;
+        _fishIcon.sprite = _fishStat.GetSprite();
 
-        if (isFishCleaned)
+        if (_fishStat.IsCleaned())
         {
             _fishCleaned.text = "Yes";
         }

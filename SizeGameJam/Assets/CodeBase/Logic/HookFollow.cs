@@ -32,8 +32,6 @@ namespace Assets.CodeBase.Logic
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Debug.Log("Yes");
-
                 SceneManager.LoadScene("GameScene");
             }
 

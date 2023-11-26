@@ -6,8 +6,6 @@ namespace Assets.CodeBase
 {
     public class FishContainer : MonoBehaviour, IFishContainer
     {
-        private List<Fish> _fishContainer = new List<Fish>();
-
         private List<FishStats> _fishStatsContainer = new List<FishStats>();
 
         private void Awake()
@@ -21,7 +19,7 @@ namespace Assets.CodeBase
         }
 
         public void AddFishToContainer(Fish fish) => 
-            _fishStatsContainer.Add(new FishStats(fish.GetScale(), fish.GetSprite(), fish.GetName()));
+            _fishStatsContainer.Add(new FishStats(fish.GetScale(), fish.GetSprite(), fish.GetName(), fish.GetPrice()));
 
         public void RemoveFishFromContainer(FishStats fish) => 
             _fishStatsContainer.Remove(fish);

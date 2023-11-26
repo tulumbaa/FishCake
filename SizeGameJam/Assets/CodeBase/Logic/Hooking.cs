@@ -26,8 +26,6 @@ namespace CodeBase.Logic
                 _catchedFish.GetComponent<Rigidbody2D>().gravityScale = 0.3f;
 
                 _catchedFish.transform.DOPause();
-
-                _catchedFish.CatchedOnHook();
             }
         }
 

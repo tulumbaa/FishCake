@@ -1598,7 +1598,7 @@ GameObject:
   - component: {fileID: 1924691710324693236}
   - component: {fileID: 7729871708785808438}
   m_Layer: 5
-  m_Name: CellButton
+  m_Name: SellButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

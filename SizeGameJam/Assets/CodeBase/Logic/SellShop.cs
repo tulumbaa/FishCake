@@ -9,7 +9,7 @@ namespace CodeBase.Logic
 {
     public class SellShop : MonoBehaviour
     {
-        public RectTransform CellShopContent;
+        public RectTransform SlotParentContent;
 
         private IFishContainer _fishContainer;
 
@@ -23,14 +23,9 @@ namespace CodeBase.Logic
 
             for (int i = 0; i < fishStats.Count; i++)
             {
-                FishSlot fishSlot = Instantiate(Resources.Load("Prefabs/FishSlot"), CellShopContent).GetComponent<FishSlot>();
+                FishSlot fishSlot = Instantiate(Resources.Load("Prefabs/FishSlot"), SlotParentContent).GetComponent<FishSlot>();
 
-                Debug.Log(fishStats[i].GetScale());
-                Debug.Log(fishStats[i].GetSprite());
-                Debug.Log(fishStats[i].IsCleaned());
-                Debug.Log(fishStats[i].GetName());
-
-                fishSlot.InstantiateFishSlot(fishStats[i].GetScale(), fishStats[i].GetSprite(), fishStats[i].IsCleaned(), fishStats[i].GetName());
+                fishSlot.InstantiateFishSlot(fishStats[i]);
             }
         }
     }

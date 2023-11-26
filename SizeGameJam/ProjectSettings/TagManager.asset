@@ -7,6 +7,7 @@ TagManager:
   - InteractionTrigger
   - Fish
   - Catch
+  - CoinsAmmountTxt
   layers:
   - Default
   - TransparentFX
@@ -46,6 +47,9 @@ TagManager:
     locked: 0
   - name: Backgroung
     uniqueID: 1984695769
+    locked: 0
+  - name: Fish
+    uniqueID: 2528241765
     locked: 0
   - name: Stuff
     uniqueID: 2747628157
