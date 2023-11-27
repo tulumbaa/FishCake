@@ -25,6 +25,8 @@ namespace Assets.CodeBase.Logic
 
         private void Start()
         {
+            Cursor.visible = false;
+
             _rigidBody = GetComponent<Rigidbody2D>();
         }
 
