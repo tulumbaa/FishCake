@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6b5d9158443dd314d8600c010d1fc687
+guid: 707e54401696a764484674b7b9112409
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: KitchenStuff_0
+      name: AdditionalMainBase_0
       rect:
         serializedVersion: 2
-        x: 3005
-        y: 3022
-        width: 1231
-        height: 558
+        x: 279
+        y: 207
+        width: 458
+        height: 665
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2521563fdcaca0640911376f8b4d83f0
-      internalID: 283689367
+      spriteID: 6cb947574b3dd8343bf31ed1da52c3ba
+      internalID: 644804832
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KitchenStuff_1
+      name: AdditionalMainBase_1
       rect:
         serializedVersion: 2
-        x: 2533
-        y: 1676
-        width: 720
-        height: 622
+        x: 856
+        y: 223
+        width: 865
+        height: 386
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c53f2ad8e9ddd144a8a692befb4f5e69
-      internalID: -1246300225
+      spriteID: 06dfd13bd566b3548bb0c265f69c7101
+      internalID: -1170151998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KitchenStuff_2
+      name: AdditionalMainBase_2
       rect:
         serializedVersion: 2
-        x: 3757
-        y: 1676
-        width: 1223
-        height: 885
+        x: 1815
+        y: 223
+        width: 410
+        height: 666
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70705f0239abb1641b9f451d455ec449
-      internalID: -1877327727
+      spriteID: 6020adc446dbdf246989591da98a1d22
+      internalID: 1387479742
       vertices: []
       indices: 
       edges: []
@@ -183,9 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      KitchenStuff_0: 283689367
-      KitchenStuff_1: -1246300225
-      KitchenStuff_2: -1877327727
+      AdditionalMainBase_0: 644804832
+      AdditionalMainBase_1: -1170151998
+      AdditionalMainBase_2: 1387479742
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
