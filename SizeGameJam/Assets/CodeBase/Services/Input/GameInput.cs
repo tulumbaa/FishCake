@@ -168,9 +168,27 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
             ""id"": ""1f168edf-f1be-416f-86e3-6b1250dbee4e"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
+                    ""name"": ""SlideAnswers"",
+                    ""type"": ""Value"",
                     ""id"": ""4dd2744d-c8b8-4a02-af4d-53695eab1d90"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SlidePhrase"",
+                    ""type"": ""Button"",
+                    ""id"": ""d3df9c6c-d11b-4a88-8740-134549b9c02d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EnterAnswer"",
+                    ""type"": ""Button"",
+                    ""id"": ""5b0c9df9-106f-4dce-8826-2cd69fc436ed"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -179,13 +197,57 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""8bb0e2bb-91d6-48b4-8c9b-456cf68b1d23"",
-                    ""path"": """",
+                    ""name"": ""2D Vector"",
+                    ""id"": ""97184133-188f-452d-b01f-9104be6a5899"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""SlideAnswers"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""a0ff9246-4b5d-462b-97ea-5ebba78900da"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlideAnswers"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""f116653c-0fd0-475e-8f69-1ecd1fdbe97a"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlideAnswers"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""55c06527-e482-4d6e-8c7f-68408070269a"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlidePhrase"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2b10cf39-7577-45bd-85ff-2ee4dc778340"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnterAnswer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -254,7 +316,9 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         m_UI_Newaction = m_UI.FindAction("New action", throwIfNotFound: true);
         // Dialogues
         m_Dialogues = asset.FindActionMap("Dialogues", throwIfNotFound: true);
-        m_Dialogues_Newaction = m_Dialogues.FindAction("New action", throwIfNotFound: true);
+        m_Dialogues_SlideAnswers = m_Dialogues.FindAction("SlideAnswers", throwIfNotFound: true);
+        m_Dialogues_SlidePhrase = m_Dialogues.FindAction("SlidePhrase", throwIfNotFound: true);
+        m_Dialogues_EnterAnswer = m_Dialogues.FindAction("EnterAnswer", throwIfNotFound: true);
         // HookingQTE
         m_HookingQTE = asset.FindActionMap("HookingQTE", throwIfNotFound: true);
         m_HookingQTE_AnyKeyReader = m_HookingQTE.FindAction("AnyKeyReader", throwIfNotFound: true);
@@ -427,12 +491,16 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     // Dialogues
     private readonly InputActionMap m_Dialogues;
     private List<IDialoguesActions> m_DialoguesActionsCallbackInterfaces = new List<IDialoguesActions>();
-    private readonly InputAction m_Dialogues_Newaction;
+    private readonly InputAction m_Dialogues_SlideAnswers;
+    private readonly InputAction m_Dialogues_SlidePhrase;
+    private readonly InputAction m_Dialogues_EnterAnswer;
     public struct DialoguesActions
     {
         private @GameInput m_Wrapper;
         public DialoguesActions(@GameInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_Dialogues_Newaction;
+        public InputAction @SlideAnswers => m_Wrapper.m_Dialogues_SlideAnswers;
+        public InputAction @SlidePhrase => m_Wrapper.m_Dialogues_SlidePhrase;
+        public InputAction @EnterAnswer => m_Wrapper.m_Dialogues_EnterAnswer;
         public InputActionMap Get() { return m_Wrapper.m_Dialogues; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -442,16 +510,28 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_DialoguesActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_DialoguesActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
+            @SlideAnswers.started += instance.OnSlideAnswers;
+            @SlideAnswers.performed += instance.OnSlideAnswers;
+            @SlideAnswers.canceled += instance.OnSlideAnswers;
+            @SlidePhrase.started += instance.OnSlidePhrase;
+            @SlidePhrase.performed += instance.OnSlidePhrase;
+            @SlidePhrase.canceled += instance.OnSlidePhrase;
+            @EnterAnswer.started += instance.OnEnterAnswer;
+            @EnterAnswer.performed += instance.OnEnterAnswer;
+            @EnterAnswer.canceled += instance.OnEnterAnswer;
         }
 
         private void UnregisterCallbacks(IDialoguesActions instance)
         {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
+            @SlideAnswers.started -= instance.OnSlideAnswers;
+            @SlideAnswers.performed -= instance.OnSlideAnswers;
+            @SlideAnswers.canceled -= instance.OnSlideAnswers;
+            @SlidePhrase.started -= instance.OnSlidePhrase;
+            @SlidePhrase.performed -= instance.OnSlidePhrase;
+            @SlidePhrase.canceled -= instance.OnSlidePhrase;
+            @EnterAnswer.started -= instance.OnEnterAnswer;
+            @EnterAnswer.performed -= instance.OnEnterAnswer;
+            @EnterAnswer.canceled -= instance.OnEnterAnswer;
         }
 
         public void RemoveCallbacks(IDialoguesActions instance)
@@ -527,7 +607,9 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     }
     public interface IDialoguesActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnSlideAnswers(InputAction.CallbackContext context);
+        void OnSlidePhrase(InputAction.CallbackContext context);
+        void OnEnterAnswer(InputAction.CallbackContext context);
     }
     public interface IHookingQTEActions
     {

@@ -17,8 +17,6 @@ namespace CodeBase.Logic
         {
             _fishContainer = FindFirstObjectByType<FishContainer>();
 
-            Debug.Log(_fishContainer);
-
             List<FishStats> fishStats = _fishContainer.GetFishesStats();
 
             for (int i = 0; i < fishStats.Count; i++)

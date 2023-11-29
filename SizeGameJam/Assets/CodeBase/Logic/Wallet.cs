@@ -18,8 +18,6 @@ namespace CodeBase.Logic
 
         private void Update()
         {
-            Debug.Log(_coins);
-
             if(SceneManager.GetActiveScene().name == "GameScene" && !_coinsAmmountTxt) 
             {
                 _coinsAmmountTxt = GameObject.FindGameObjectWithTag("CoinsAmmountTxt").GetComponent<TextMeshProUGUI>();

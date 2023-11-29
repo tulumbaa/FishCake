@@ -39,7 +39,7 @@ namespace Assets.CodeBase.Logic
 
             Vector3 hookPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
 
-            _rigidBody.DOMove(new Vector3(Mathf.Clamp(Camera.main.ScreenToWorldPoint(hookPos).x, -10f, 12f),
+            _rigidBody.DOMove(new Vector3(Mathf.Clamp(Camera.main.ScreenToWorldPoint(hookPos).x, -8f, 8f),
                 Mathf.Clamp(Camera.main.ScreenToWorldPoint(hookPos).y, maxDepth * -1, 5),
                 Camera.main.ScreenToWorldPoint(hookPos).z),
                 _followingDuration, false);

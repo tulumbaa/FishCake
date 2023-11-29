@@ -7,6 +7,8 @@ namespace Codebase.Character
     public class CharacterTriggerInteraction : MonoBehaviour
     {
         private const string InteractionTriggerTag = "InteractionTrigger";
+        [SerializeField]
+        private GameObject _signIcon;
 
         private ITrigger _trigger;
         private GameInput _gameInput;
@@ -15,6 +17,11 @@ namespace Codebase.Character
         private void Construct(GameInput gameInput)
         {
             _gameInput = gameInput;
+        }
+
+        private void Start()
+        {
+            _signIcon.SetActive(false);
         }
 
         private void Update()
@@ -39,6 +46,8 @@ namespace Codebase.Character
         {
             if (collision.CompareTag(InteractionTriggerTag))
             {
+                _signIcon.SetActive(isPlayerInTrigger);
+
                 _trigger = collision.GetComponent<ITrigger>();
 
                 _trigger.PlayerEntered(isPlayerInTrigger);

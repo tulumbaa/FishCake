@@ -35,5 +35,8 @@ namespace Assets.CodeBase
 
         public void Cleaning() => 
             _isCleaned = true;
+
+        public void SetNewPrice() => 
+            _price *= 2;
     }
 }

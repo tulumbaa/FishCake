@@ -5,15 +5,25 @@ using UnityEngine;
 
 public class Knife : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private const string ScaleTag = "Scale";
+
+    private UniqueScaleContainer _scaleContainer;
+
+    private void Start()
     {
-        
+        _scaleContainer = FindFirstObjectByType<UniqueScaleContainer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag(ScaleTag))
+        {
+            collision.GetComponent<Scale>().Cleaned();
 
+            if (collision.GetComponent<Scale>().GetUnique())
+            {
+                _scaleContainer.AddUniqueScale();
+            }
+        }
     }
 }

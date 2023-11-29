@@ -21,7 +21,7 @@ public class KnifeFollow : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene("KitchenScene");
         }
 
         Vector3 hookPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);

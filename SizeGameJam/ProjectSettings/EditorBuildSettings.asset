@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Content/Scenes/FishingScene.unity
     guid: ab437808eb1b28b4394091350f024ff1
+  - enabled: 1
+    path: Assets/Content/Scenes/KitchenScene.unity
+    guid: de4267d41f7b3114c9f24630cebcad0e
+  - enabled: 1
+    path: Assets/Content/Scenes/CleaningScene.unity
+    guid: 590365cac1a9c0c4dab501b4f7f7ee3c
   m_configObjects: {}

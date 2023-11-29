@@ -6,4 +6,11 @@
 
         void Interact();
     }
+
+    public interface ITriggerDialogueInteraction : ITrigger
+    {
+        void StartDialogue();
+
+        void DialogueFinished();
+    }
 }
