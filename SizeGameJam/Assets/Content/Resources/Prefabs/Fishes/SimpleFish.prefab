@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Buddy
-  _price: 5
+  _price: 15
   _scale: 0
   _power: 2
   _weight: 1

@@ -32,7 +32,7 @@ namespace Assets.CodeBase.Logic
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Tab))
             {
                 SceneManager.LoadScene("GameScene");
             }
@@ -40,7 +40,7 @@ namespace Assets.CodeBase.Logic
             Vector3 hookPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
 
             _rigidBody.DOMove(new Vector3(Mathf.Clamp(Camera.main.ScreenToWorldPoint(hookPos).x, -8f, 8f),
-                Mathf.Clamp(Camera.main.ScreenToWorldPoint(hookPos).y, maxDepth * -1, 5),
+                Mathf.Clamp(Camera.main.ScreenToWorldPoint(hookPos).y, maxDepth * -1, 6),
                 Camera.main.ScreenToWorldPoint(hookPos).z),
                 _followingDuration, false);
         }

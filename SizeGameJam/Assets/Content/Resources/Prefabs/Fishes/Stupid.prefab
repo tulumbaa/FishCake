@@ -193,9 +193,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Stupid
-  _price: 8
-  _scale: 2
-  _power: 4
-  _weight: 3
+  _price: 25
+  _scale: 0
+  _power: 8
+  _weight: 10
   _timeToHooking: 4
   _swimSpeed: 3

@@ -807,7 +807,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 61.57789
     y: 73.92154
-    width: 159.33316
+    width: 149.57803
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -849,11 +849,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 1104.4928, y: 391.08585}
+  scrollPos: {x: 66.29713, y: -15.984779}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 290
-  zoom: 0.2500004
+  zoom: 0.79000014
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -861,7 +861,7 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 314241424}
+  - {fileID: 314241442}
   selectedCommands: []
   variables:
   - {fileID: 314241426}
@@ -1535,7 +1535,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 233.84271
     y: 75.93759
-    width: 156.6665
+    width: 150.42194
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3515,7 +3515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlockName: ChoTiTicaeshisya
-  MessageToExecuteDialogue: TestMessage
+  MessageToExecuteDialogue: ChoTiTicaeshisya
   Flowchart: {fileID: 314241425}
   MenuDialog: {fileID: 489439935}
   _isDialogueActivateInStart: 0

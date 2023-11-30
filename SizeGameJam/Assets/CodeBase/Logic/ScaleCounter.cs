@@ -16,6 +16,8 @@ public class ScaleCounter : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = true;
+
         _flowchart = FindFirstObjectByType<Flowchart>();
 
         _scaleContainer = FindFirstObjectByType<UniqueScaleContainer>();
