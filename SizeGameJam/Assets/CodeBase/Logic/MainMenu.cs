@@ -5,9 +5,12 @@ namespace CodeBase.Logic
 {
     public class MainMenu : MonoBehaviour
     {
-        public void StartTheGame()
+        private void Update()
         {
-            SceneManager.LoadScene("GameScene");
+            if (Input.anyKeyDown)
+            {
+                SceneManager.LoadScene("GameScene");
+            }
         }
     }
 }
