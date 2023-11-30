@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Content/Scenes/CleaningScene.unity
     guid: 590365cac1a9c0c4dab501b4f7f7ee3c
+  - enabled: 1
+    path: Assets/Content/Scenes/TitlesScene.unity
+    guid: 9b8ef10006b05b74586e07d5ae018b9b
   m_configObjects: {}

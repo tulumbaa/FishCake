@@ -56,7 +56,7 @@ namespace Assets.CodeBase.Logic
 
                 GameObject newFish = Instantiate(_fishToSpawn.gameObject, transform.position, Quaternion.identity);
 
-                newFish.transform.DOMoveX(_swimDirection * -1, _swimSpeed, false).SetEase(Ease.Linear);
+                newFish.transform.DOMoveX(_swimDirection * -1, _fishToSpawn.GetSwimSpeed(), false).SetEase(Ease.Linear);
                 if (_isActive)
                 {
                     mySequence.Join(newFish.transform.DOShakePosition(_shakeDuration, _shakeStrenght, _shakeVibro, _shakeRandomness, _shakeSnapping, _shakeFadeOut));

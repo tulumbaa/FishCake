@@ -197,5 +197,5 @@ MonoBehaviour:
   _scale: 0
   _power: 2
   _weight: 1
-  _timeToHooking: 6
-  _swimSpeed: 3
+  _timeToHooking: 5
+  _swimSpeed: 5

@@ -194,8 +194,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: BigDude
   _price: 30
-  _scale: 9
+  _scale: 12
   _power: 8
-  _weight: 8
-  _timeToHooking: 19
-  _swimSpeed: 10
+  _weight: 20
+  _timeToHooking: 1
+  _swimSpeed: 5

@@ -33,6 +33,9 @@ namespace Assets.Codebase.Triggers
 
         private bool _isDialogueInProcess;
 
+        [SerializeField]
+        private bool _isDialogueActivateInStart;
+
         [Inject]
         private void Construct(GameInput gameInput, IGameInputService gameInputService, IDialogueService dialogueService)
         {
@@ -45,6 +48,11 @@ namespace Assets.Codebase.Triggers
         {
             _sayDialogue = FindObjectOfType<SayDialog>().gameObject;
             _inputDialogue = _sayDialogue.GetComponent<DialogInput>();
+
+            if (_isDialogueActivateInStart)
+            {
+                StartDialogue();
+            }
         }
 
         private void Update()

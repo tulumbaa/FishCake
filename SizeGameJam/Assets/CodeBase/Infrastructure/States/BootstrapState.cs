@@ -7,7 +7,7 @@ namespace CodeBase.Infrastructure.States
     public class BootstrapState : IState
     {
         private const string BootScene = "Boot";
-        private const string GameScene = "GameScene";
+        private const string MenuScene = "MenuScene";
 
         private readonly GameStateMachine _stateMachine;
         private readonly ISceneService _sceneService;
@@ -22,7 +22,7 @@ namespace CodeBase.Infrastructure.States
         {
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(BootScene));
             //_sceneService.Load("UI", false, LoadSceneMode.Additive);
-            _stateMachine.Enter<LoadLevelState, string>(GameScene);
+            _stateMachine.Enter<LoadLevelState, string>(MenuScene);
         }
 
         public void Exit()

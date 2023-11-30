@@ -194,8 +194,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Boomy
   _price: 10
-  _scale: 7
-  _power: 4
-  _weight: 5
-  _timeToHooking: 14
-  _swimSpeed: 4
+  _scale: 4
+  _power: 5
+  _weight: 6
+  _timeToHooking: 4
+  _swimSpeed: 6

@@ -194,8 +194,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Mommy
   _price: 15
-  _scale: 6
-  _power: 5
-  _weight: 5
-  _timeToHooking: 19
-  _swimSpeed: 6
+  _scale: 8
+  _power: 4
+  _weight: 10
+  _timeToHooking: 3
+  _swimSpeed: 8
